@@ -1,0 +1,8 @@
+input
+{
+    FPVector2 MoveDirection;
+    FPVector2 LookRotation;
+    button    Sprint;
+    button    Jump;
+    button    Fire;
+}

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19896944ed3cab468de9c584d76480b, type: 3}
+  m_Name: PlayerKCCSettings
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: 03_Shooter/Configs/PlayerKCCSettings
+    Guid:
+      Value: 362870745931013196
+  Radius:
+    RawValue: 24904
+  Height:
+    RawValue: 111411
+  Extent:
+    RawValue: 1965
+  CollisionLayerMask:
+    BitMask: 1
+  MaxPenetrationSteps: 3
+  CCDRadiusMultiplier:
+    RawValue: 49152
+  Processors:
+  - Id:
+      Value: 287335251798469032
+  - Id:
+      Value: 346629094697776339
+  - Id:
+      Value: 301925475738747965

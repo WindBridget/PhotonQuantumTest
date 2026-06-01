@@ -1,0 +1,67 @@
+﻿singleton component ShooterGameplay
+{
+	[ExcludeFromPrototype]
+	PlayerRef BestHunter;
+}
+
+component ShooterPlayer
+{
+	[ExcludeFromPrototype]
+	int ChickenKills;
+}
+
+component Shooting
+{
+	[Tooltip("Layer mask for raycasting hits")]
+	LayerMask HitMask;
+	[Tooltip("Offset from character root to camera pivot point")]
+	FPVector3 CameraPivotOffset;
+	[Tooltip("Offset from pivot to camera position")]
+	FPVector3 CameraHandleOffset;
+	[Tooltip("Maximum shooting distance")]
+	FP MaxDistance;
+}
+
+component Health
+{
+	[Tooltip("Current health amount")]
+	int CurrentHealth;
+	[Tooltip("Maximum possible health")]
+	int MaxHealth;
+	[Tooltip("Duration of death effects like animations and visual effects (in seconds)")]
+	FP DeathTime;
+
+	[ExcludeFromPrototype]
+	FrameTimer DeathTimer;
+}
+
+component SpawnPoint
+{
+	[Tooltip("Radius around spawn point where entities can be spawned")]
+	FP Radius;
+}
+
+component Chicken
+{
+	[ExcludeFromPrototype]
+	FP Speed;
+	[ExcludeFromPrototype]
+	FrameTimer LifetimeTimer;
+}
+
+signal EntityKilled(EntityRef entity, EntityRef killerEntity);
+
+event Fired
+{
+	EntityRef FireEntity;
+	FPVector3 EndPosition;
+	FPVector3 HitNormal;
+	EntityRef HitEntity;
+}
+
+signal EntityDied(EntityRef entity);
+
+event DamageReceived
+{
+	EntityRef Entity;
+}

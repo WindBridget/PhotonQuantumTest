@@ -1,0 +1,40 @@
+// Pre-defining max number of players (default is 6, absolute max is 64)
+#pragma max_players 16
+
+component PlayerLink
+{
+	PlayerRef PlayerRef;
+}
+
+component Movement
+{
+	[Tooltip("Whether to update KCC look rotation based on player input (used for first person view)")]
+	bool SetLookRotation;
+	[Tooltip("Speed at which entity rotates")]
+	FP RotationSpeed;
+	[Tooltip("Force applied when jumping")]
+	FP JumpForce;
+	[Tooltip("Multiplier applied to base speed")]
+	FP WalkSpeedMultiplier;
+
+	[ExcludeFromPrototype]
+	bool JumpInProgress;
+}
+
+signal PlayerFell(EntityRef entity);
+
+event ResetLookRotation
+{
+	local PlayerRef LocalPlayer;
+	FPVector2 Look;
+}
+
+event Jumped
+{
+	EntityRef Entity;
+}
+
+event Landed
+{
+	EntityRef Entity;
+}

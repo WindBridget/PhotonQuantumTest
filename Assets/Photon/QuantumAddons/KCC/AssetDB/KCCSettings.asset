@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19896944ed3cab468de9c584d76480b, type: 3}
+  m_Name: KCCSettings
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: Photon/QuantumAddons/KCC/AssetDB/KCCSettings
+    Guid:
+      Value: 385596505887953737
+  Radius:
+    RawValue: 22937
+  Height:
+    RawValue: 117964
+  Extent:
+    RawValue: 1965
+  CollisionLayerMask:
+    BitMask: 1
+  MaxPenetrationSteps: 3
+  CCDRadiusMultiplier:
+    RawValue: 49152
+  Processors:
+  - Id:
+      Value: 323527616151929684
+  - Id:
+      Value: 340717403632967784
+  - Id:
+      Value: 301925475738747965

@@ -1,0 +1,3 @@
+build: 3.0.5 Stable 1749
+date: 2025-07-11 12:00:12
+git: 3.0/release/3.0.5 (1fe6172b5)

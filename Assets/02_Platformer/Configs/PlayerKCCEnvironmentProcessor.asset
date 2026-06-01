@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0550e86353b7eb499a88b08489f970a, type: 3}
+  m_Name: PlayerKCCEnvironmentProcessor
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: 02_Platformer/Configs/PlayerKCCEnvironmentProcessor
+    Guid:
+      Value: 328451616726148512
+  KinematicSpeed:
+    RawValue: 458752
+  JumpMultiplier:
+    RawValue: 65536
+  Gravity:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: -1835008
+    Z:
+      RawValue: 0
+  MaxGroundAngle:
+    RawValue: 3932160
+  DynamicGroundFriction:
+    RawValue: 655360
+  KinematicGroundAcceleration:
+    RawValue: 655360
+  KinematicGroundFriction:
+    RawValue: 655360
+  DynamicAirFriction:
+    RawValue: 327680
+  KinematicAirAcceleration:
+    RawValue: 655360
+  KinematicAirFriction:
+    RawValue: 327680

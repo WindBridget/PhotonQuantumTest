@@ -1,0 +1,309 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6d489b8b120814494767c896407cba, type: 3}
+  m_Name: QuantumStarterHubPage
+  m_EditorClassIdentifier: 
+  Content:
+  - Title: Quantum Starter
+    Description: Welcome to Quantum Starter Sample
+    Icon: {fileID: 2800000, guid: 0a86c2478d62ef74bb46b7906cac7fb2, type: 3}
+    OverwritePage: Welcome
+    PopupOncePlayerPrefsKey: Quantum.Hub.QuantumStarter
+    Elements:
+    - Text: Quantum Starter is an entry-level game sample designed for testing and
+        learning about Quantum, and enjoying multiplayer gameplay with friends and
+        colleagues. The project consists of a series of small, independent examples.
+        Each example has its own folder and namespace.
+      Subtext: 
+      WidgetMode:
+        Value: Text
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 1
+      Icon: {fileID: 0}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: e518b63a-82a6-426a-8aac-62c49bb96f22
+      StepElements: []
+    - Text: Getting Started Documentation (Opens Web Browser)
+      Subtext: Open the offiial Quantum Starter Getting Started documentation website
+      WidgetMode:
+        Value: LinkButton
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 2800000, guid: 48362b7bdabe49d4b93c092e53f3c269, type: 3}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: https://doc.photonengine.com/quantum/current/game-samples/quantum-starter/getting-started
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: 1c5b076a-6aa8-4afe-915b-89a7c9b833c7
+      StepElements:
+      - Text: Load and run the online game scene
+        Subtext: Opens the menu scene to join a multiplayer game
+        WidgetMode:
+          Value: SceneButton
+        AutoComplete:
+          Value: ButtonClicked
+        Hide:
+          Value: None
+        Scene: Assets/Photon/QuantumMenu/QuantumSampleMenu.unity
+        AddSceneToTop: 0
+        Icon: {fileID: 2800000, guid: 24a22d21fe312f44892796563f01c302, type: 3}
+        StatusIcon: {fileID: 0}
+        StartPlayMode: 1
+        Url: 
+        Type:
+          ScriptableObject: 
+          Class: 
+        Asset: {fileID: 0}
+        Id: f1a85fbe-3bd0-44e0-a69b-67d701f0b3e2
+    - Text: Open the website above or follow these steps to play the sample game
+        online.
+      Subtext: 
+      WidgetMode:
+        Value: Text
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 0}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: 1c5b076a-6aa8-4afe-915b-89a7c9b833c7
+      StepElements: []
+    - Text: Register to a Photon account on our website and create an AppId to run
+        online games.
+      Subtext: 
+      WidgetMode:
+        Value: Step
+      AutoComplete:
+        Value: AppIdCreated
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 0}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: cbe82651-760f-46ef-9dde-44f524a3ea2f
+      StepElements:
+      - Text: "<b>A Quantum 3 AppId is required to connect to the Quantum public
+          cloud:</b>\r\n  - Open the Photon Dashboard link log in or register an
+          account.\r\n  - Select an existing Quantum 3 AppId or create a new one.\r\n 
+          - Copy the App Id and paste into the field below."
+        Subtext: 
+        WidgetMode:
+          Value: Text
+        AutoComplete:
+          Value: None
+        Hide:
+          Value: None
+        Scene: 
+        AddSceneToTop: 0
+        Icon: {fileID: 0}
+        StatusIcon: {fileID: 0}
+        StartPlayMode: 0
+        Url: 
+        Type:
+          ScriptableObject: 
+          Class: 
+        Asset: {fileID: 0}
+        Id: 7376aba9-55ea-4c23-af28-8a0ffbbc505c
+      - Text: Photon Dashboard (Opens Web Browser)
+        Subtext: Register a Photon account and create free AppIds
+        WidgetMode:
+          Value: LinkButton
+        AutoComplete:
+          Value: 
+        Hide:
+          Value: 
+        Scene: 
+        AddSceneToTop: 0
+        Icon: {fileID: 2800000, guid: 48362b7bdabe49d4b93c092e53f3c269, type: 3}
+        StatusIcon: {fileID: 0}
+        StartPlayMode: 0
+        Url: https://dashboard.photonengine.com
+        Type:
+          ScriptableObject: 
+          Class: 
+        Asset: {fileID: 0}
+        Id: 7a474921-f416-41f2-9fdc-d98be73fefbe
+      - Text: 
+        Subtext: 
+        WidgetMode:
+          Value: AppIdBox
+        AutoComplete:
+          Value: 
+        Hide:
+          Value: 
+        Scene: 
+        AddSceneToTop: 0
+        Icon: {fileID: 0}
+        StatusIcon: {fileID: 0}
+        StartPlayMode: 0
+        Url: 
+        Type:
+          ScriptableObject: 
+          Class: 
+        Asset: {fileID: 0}
+        Id: d686fb1b-d20b-429c-a42b-a29c850a45e0
+    - Text: Play the sample
+      Subtext: 
+      WidgetMode:
+        Value: Step
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 0}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: 1c5b076a-6aa8-4afe-915b-89a7c9b833c7
+      StepElements:
+      - Text: Open main menu scene
+        Subtext: Opens the 00_MainMenu scene that lets you choose which example to
+          start.
+        WidgetMode:
+          Value: SceneButton
+        AutoComplete:
+          Value: ButtonClicked
+        Hide:
+          Value: None
+        Scene: Assets/00_MainMenu/00_MainMenu.unity
+        AddSceneToTop: 1
+        Icon: {fileID: 2800000, guid: 24a22d21fe312f44892796563f01c302, type: 3}
+        StatusIcon: {fileID: 0}
+        StartPlayMode: 0
+        Url: 
+        Type:
+          ScriptableObject: 
+          Class: 
+        Asset: {fileID: 0}
+        Id: f1a85fbe-3bd0-44e0-a69b-67d701f0b3e2
+    - Text: Futher Configurations
+      Subtext: 
+      WidgetMode:
+        Value: Text
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 0}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: 12d32080-4474-4711-84bf-7f02fef626ca
+      StepElements: []
+    - Text: '<b>Quantum Log Level  [<color=#FFDDBB>{0}</color>]</b>
+
+        <color=#aaaaaa>Change
+        the Quantum log level to Debug or Info for development.</color>'
+      Subtext: 
+      WidgetMode:
+        Value: LogLevel
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 2800000, guid: 9fee294d467aef642a5e60b4c6778684, type: 3}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: 7dd52118-7d0c-4da6-ab1b-c940967541b5
+      StepElements: []
+    - Text: Futher Reading
+      Subtext: 
+      WidgetMode:
+        Value: Text
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 0}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: 94d5d5d5-cf50-40a1-9f66-199a6ed3e6e9
+      StepElements: []
+    - Text: Quantum 3 Online Documentation (Opens Web Browser)
+      Subtext: Open the Quantum 3 online documentation to discover tons of material
+        including tutorials, manuals, concepts, samples and addons")
+      WidgetMode:
+        Value: LinkButton
+      AutoComplete:
+        Value: None
+      Hide:
+        Value: None
+      Scene: 
+      AddSceneToTop: 0
+      Icon: {fileID: 2800000, guid: 48362b7bdabe49d4b93c092e53f3c269, type: 3}
+      StatusIcon: {fileID: 0}
+      StartPlayMode: 0
+      Url: 
+      Type:
+        ScriptableObject: 
+        Class: 
+      Asset: {fileID: 0}
+      Id: 0f1e4b63-13b1-41e9-b86e-8a83dac311ef
+      StepElements: []

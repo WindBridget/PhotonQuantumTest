@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 3562e8c5ef1b0cb4e9d4f5e8f5608865
+labels:
+- QuantumAsset
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b30571f93ff71e94cbbf69753610f826, type: 3}
