@@ -902,85 +902,6 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct Coin : Quantum.IComponent {
-    public const Int32 SIZE = 16;
-    public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    [Tooltip("Time until coin respawns after being collected")]
-    public FP RefreshTime;
-    [FieldOffset(8)]
-    [ExcludeFromPrototype()]
-    public FrameTimer RefreshTimer;
-    public override readonly Int32 GetHashCode() {
-      unchecked { 
-        var hash = 3767;
-        hash = hash * 31 + RefreshTime.GetHashCode();
-        hash = hash * 31 + RefreshTimer.GetHashCode();
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (Coin*)ptr;
-        FP.Serialize(&p->RefreshTime, serializer);
-        FrameTimer.Serialize(&p->RefreshTimer, serializer);
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct FallingPlatform : Quantum.IComponent {
-    public const Int32 SIZE = 56;
-    public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    [Tooltip("Time delay before platform starts falling")]
-    public FP FallDelay;
-    [FieldOffset(8)]
-    [Tooltip("Time until platform resets to original position")]
-    public FP ResetTime;
-    [FieldOffset(32)]
-    [ExcludeFromPrototype()]
-    public FPVector3 OriginalPosition;
-    [FieldOffset(16)]
-    [ExcludeFromPrototype()]
-    public FrameTimer FallTimer;
-    [FieldOffset(24)]
-    [ExcludeFromPrototype()]
-    public FrameTimer ResetTimer;
-    public override readonly Int32 GetHashCode() {
-      unchecked { 
-        var hash = 19543;
-        hash = hash * 31 + FallDelay.GetHashCode();
-        hash = hash * 31 + ResetTime.GetHashCode();
-        hash = hash * 31 + OriginalPosition.GetHashCode();
-        hash = hash * 31 + FallTimer.GetHashCode();
-        hash = hash * 31 + ResetTimer.GetHashCode();
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (FallingPlatform*)ptr;
-        FP.Serialize(&p->FallDelay, serializer);
-        FP.Serialize(&p->ResetTime, serializer);
-        FrameTimer.Serialize(&p->FallTimer, serializer);
-        FrameTimer.Serialize(&p->ResetTimer, serializer);
-        FPVector3.Serialize(&p->OriginalPosition, serializer);
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct Flag : Quantum.IComponent {
-    public const Int32 SIZE = 4;
-    public const Int32 ALIGNMENT = 4;
-    [FieldOffset(0)]
-    private fixed Byte _alignment_padding_[4];
-    public override readonly Int32 GetHashCode() {
-      unchecked { 
-        var hash = 2711;
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (Flag*)ptr;
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Health : Quantum.IComponent {
     public const Int32 SIZE = 24;
     public const Int32 ALIGNMENT = 8;
@@ -1129,69 +1050,6 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct PlatformerGameplay : Quantum.IComponentSingleton {
-    public const Int32 SIZE = 56;
-    public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    [Tooltip("Minimum number of coins required to win the game")]
-    public Int32 MinCoinsToWin;
-    [FieldOffset(8)]
-    [Tooltip("Time to show the game result before new round starts")]
-    public FP GameOverTime;
-    [FieldOffset(32)]
-    [Tooltip("Initial spawn position for players")]
-    public FPVector3 SpawnPosition;
-    [FieldOffset(16)]
-    [Tooltip("Radius around spawn position where players can be placed")]
-    public FP SpawnRadius;
-    [FieldOffset(4)]
-    [ExcludeFromPrototype()]
-    public PlayerRef Winner;
-    [FieldOffset(24)]
-    [ExcludeFromPrototype()]
-    public FrameTimer GameOverTimer;
-    public override readonly Int32 GetHashCode() {
-      unchecked { 
-        var hash = 9929;
-        hash = hash * 31 + MinCoinsToWin.GetHashCode();
-        hash = hash * 31 + GameOverTime.GetHashCode();
-        hash = hash * 31 + SpawnPosition.GetHashCode();
-        hash = hash * 31 + SpawnRadius.GetHashCode();
-        hash = hash * 31 + Winner.GetHashCode();
-        hash = hash * 31 + GameOverTimer.GetHashCode();
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (PlatformerGameplay*)ptr;
-        serializer.Stream.Serialize(&p->MinCoinsToWin);
-        PlayerRef.Serialize(&p->Winner, serializer);
-        FP.Serialize(&p->GameOverTime, serializer);
-        FP.Serialize(&p->SpawnRadius, serializer);
-        FrameTimer.Serialize(&p->GameOverTimer, serializer);
-        FPVector3.Serialize(&p->SpawnPosition, serializer);
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct PlatformerPlayer : Quantum.IComponent {
-    public const Int32 SIZE = 4;
-    public const Int32 ALIGNMENT = 4;
-    [FieldOffset(0)]
-    [ExcludeFromPrototype()]
-    public Int32 CollectedCoins;
-    public override readonly Int32 GetHashCode() {
-      unchecked { 
-        var hash = 1873;
-        hash = hash * 31 + CollectedCoins.GetHashCode();
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (PlatformerPlayer*)ptr;
-        serializer.Stream.Serialize(&p->CollectedCoins);
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct PlayerLink : Quantum.IComponent {
     public const Int32 SIZE = 4;
     public const Int32 ALIGNMENT = 4;
@@ -1303,9 +1161,6 @@ namespace Quantum {
   public unsafe partial interface ISignalPlayerFell : ISignal {
     void PlayerFell(Frame f, EntityRef entity);
   }
-  public unsafe partial interface ISignalCoinCollected : ISignal {
-    void CoinCollected(Frame f, EntityRef entity);
-  }
   public unsafe partial interface ISignalEntityKilled : ISignal {
     void EntityKilled(Frame f, EntityRef entity, EntityRef killerEntity);
   }
@@ -1316,7 +1171,6 @@ namespace Quantum {
   }
   public unsafe partial class Frame {
     private ISignalPlayerFell[] _ISignalPlayerFellSystems;
-    private ISignalCoinCollected[] _ISignalCoinCollectedSystems;
     private ISignalEntityKilled[] _ISignalEntityKilledSystems;
     private ISignalEntityDied[] _ISignalEntityDiedSystems;
     partial void AllocGen() {
@@ -1331,7 +1185,6 @@ namespace Quantum {
     partial void InitGen() {
       Initialize(this, this.SimulationConfig.Entities, 256);
       _ISignalPlayerFellSystems = BuildSignalsArray<ISignalPlayerFell>();
-      _ISignalCoinCollectedSystems = BuildSignalsArray<ISignalCoinCollected>();
       _ISignalEntityKilledSystems = BuildSignalsArray<ISignalEntityKilled>();
       _ISignalEntityDiedSystems = BuildSignalsArray<ISignalEntityDied>();
       _ComponentSignalsOnAdded = new ComponentReactiveCallbackInvoker[ComponentTypeId.Type.Length];
@@ -1342,12 +1195,6 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<CharacterController3D>();
       BuildSignalsArrayOnComponentAdded<Quantum.Chicken>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Chicken>();
-      BuildSignalsArrayOnComponentAdded<Quantum.Coin>();
-      BuildSignalsArrayOnComponentRemoved<Quantum.Coin>();
-      BuildSignalsArrayOnComponentAdded<Quantum.FallingPlatform>();
-      BuildSignalsArrayOnComponentRemoved<Quantum.FallingPlatform>();
-      BuildSignalsArrayOnComponentAdded<Quantum.Flag>();
-      BuildSignalsArrayOnComponentRemoved<Quantum.Flag>();
       BuildSignalsArrayOnComponentAdded<Quantum.Health>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Health>();
       BuildSignalsArrayOnComponentAdded<Quantum.KCC>();
@@ -1382,10 +1229,6 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<PhysicsJoints2D>();
       BuildSignalsArrayOnComponentAdded<PhysicsJoints3D>();
       BuildSignalsArrayOnComponentRemoved<PhysicsJoints3D>();
-      BuildSignalsArrayOnComponentAdded<Quantum.PlatformerGameplay>();
-      BuildSignalsArrayOnComponentRemoved<Quantum.PlatformerGameplay>();
-      BuildSignalsArrayOnComponentAdded<Quantum.PlatformerPlayer>();
-      BuildSignalsArrayOnComponentRemoved<Quantum.PlatformerPlayer>();
       BuildSignalsArrayOnComponentAdded<Quantum.PlayerLink>();
       BuildSignalsArrayOnComponentRemoved<Quantum.PlayerLink>();
       BuildSignalsArrayOnComponentAdded<Quantum.ShooterGameplay>();
@@ -1435,15 +1278,6 @@ namespace Quantum {
           }
         }
       }
-      public void CoinCollected(EntityRef entity) {
-        var array = _f._ISignalCoinCollectedSystems;
-        for (Int32 i = 0; i < array.Length; ++i) {
-          var s = array[i];
-          if (_f.SystemIsEnabledInHierarchy((SystemBase)s)) {
-            s.CoinCollected(_f, entity);
-          }
-        }
-      }
       public void EntityKilled(EntityRef entity, EntityRef killerEntity) {
         var array = _f._ISignalEntityKilledSystems;
         for (Int32 i = 0; i < array.Length; ++i) {
@@ -1490,7 +1324,6 @@ namespace Quantum {
       typeRegistry.Register(typeof(CharacterController2D), CharacterController2D.SIZE);
       typeRegistry.Register(typeof(CharacterController3D), CharacterController3D.SIZE);
       typeRegistry.Register(typeof(Quantum.Chicken), Quantum.Chicken.SIZE);
-      typeRegistry.Register(typeof(Quantum.Coin), Quantum.Coin.SIZE);
       typeRegistry.Register(typeof(ColorRGBA), ColorRGBA.SIZE);
       typeRegistry.Register(typeof(ComponentPrototypeRef), ComponentPrototypeRef.SIZE);
       typeRegistry.Register(typeof(ComponentTypeRef), ComponentTypeRef.SIZE);
@@ -1510,8 +1343,6 @@ namespace Quantum {
       typeRegistry.Register(typeof(FPQuaternion), FPQuaternion.SIZE);
       typeRegistry.Register(typeof(FPVector2), FPVector2.SIZE);
       typeRegistry.Register(typeof(FPVector3), FPVector3.SIZE);
-      typeRegistry.Register(typeof(Quantum.FallingPlatform), Quantum.FallingPlatform.SIZE);
-      typeRegistry.Register(typeof(Quantum.Flag), Quantum.Flag.SIZE);
       typeRegistry.Register(typeof(FrameMetaData), FrameMetaData.SIZE);
       typeRegistry.Register(typeof(FrameTimer), FrameTimer.SIZE);
       typeRegistry.Register(typeof(Quantum.Health), Quantum.Health.SIZE);
@@ -1558,8 +1389,6 @@ namespace Quantum {
       typeRegistry.Register(typeof(PhysicsJoints3D), PhysicsJoints3D.SIZE);
       typeRegistry.Register(typeof(PhysicsQueryRef), PhysicsQueryRef.SIZE);
       typeRegistry.Register(typeof(PhysicsSceneSettings), PhysicsSceneSettings.SIZE);
-      typeRegistry.Register(typeof(Quantum.PlatformerGameplay), Quantum.PlatformerGameplay.SIZE);
-      typeRegistry.Register(typeof(Quantum.PlatformerPlayer), Quantum.PlatformerPlayer.SIZE);
       typeRegistry.Register(typeof(Quantum.PlayerLink), Quantum.PlayerLink.SIZE);
       typeRegistry.Register(typeof(PlayerRef), PlayerRef.SIZE);
       typeRegistry.Register(typeof(Ptr), Ptr.SIZE);
@@ -1582,18 +1411,13 @@ namespace Quantum {
       typeRegistry.Register(typeof(Quantum._globals_), Quantum._globals_.SIZE);
     }
     static partial void InitComponentTypeIdGen() {
-      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 15)
+      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 10)
         .AddBuiltInComponents()
         .Add<Quantum.Chicken>(Quantum.Chicken.Serialize, null, null, ComponentFlags.None)
-        .Add<Quantum.Coin>(Quantum.Coin.Serialize, null, null, ComponentFlags.None)
-        .Add<Quantum.FallingPlatform>(Quantum.FallingPlatform.Serialize, null, null, ComponentFlags.None)
-        .Add<Quantum.Flag>(Quantum.Flag.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Health>(Quantum.Health.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.KCC>(Quantum.KCC.Serialize, null, Quantum.KCC.OnRemoved, ComponentFlags.None)
         .Add<Quantum.KCCProcessorLink>(Quantum.KCCProcessorLink.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Movement>(Quantum.Movement.Serialize, null, null, ComponentFlags.None)
-        .Add<Quantum.PlatformerGameplay>(Quantum.PlatformerGameplay.Serialize, null, null, ComponentFlags.Singleton)
-        .Add<Quantum.PlatformerPlayer>(Quantum.PlatformerPlayer.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.PlayerLink>(Quantum.PlayerLink.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.ShooterGameplay>(Quantum.ShooterGameplay.Serialize, null, null, ComponentFlags.Singleton)
         .Add<Quantum.ShooterPlayer>(Quantum.ShooterPlayer.Serialize, null, null, ComponentFlags.None)

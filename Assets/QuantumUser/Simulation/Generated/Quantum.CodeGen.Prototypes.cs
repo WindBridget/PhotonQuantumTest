@@ -65,56 +65,6 @@ namespace Quantum.Prototypes {
     }
   }
   [System.SerializableAttribute()]
-  [Quantum.Prototypes.Prototype(typeof(Quantum.Coin))]
-  public unsafe partial class CoinPrototype : ComponentPrototype<Quantum.Coin> {
-    [Tooltip("Time until coin respawns after being collected")]
-    public FP RefreshTime;
-    partial void MaterializeUser(Frame frame, ref Quantum.Coin result, in PrototypeMaterializationContext context);
-    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
-        Quantum.Coin component = default;
-        Materialize((Frame)f, ref component, in context);
-        return f.Set(entity, component) == SetResult.ComponentAdded;
-    }
-    public void Materialize(Frame frame, ref Quantum.Coin result, in PrototypeMaterializationContext context = default) {
-        result.RefreshTime = this.RefreshTime;
-        MaterializeUser(frame, ref result, in context);
-    }
-  }
-  [System.SerializableAttribute()]
-  [Quantum.Prototypes.Prototype(typeof(Quantum.FallingPlatform))]
-  public unsafe partial class FallingPlatformPrototype : ComponentPrototype<Quantum.FallingPlatform> {
-    [Tooltip("Time delay before platform starts falling")]
-    public FP FallDelay;
-    [Tooltip("Time until platform resets to original position")]
-    public FP ResetTime;
-    partial void MaterializeUser(Frame frame, ref Quantum.FallingPlatform result, in PrototypeMaterializationContext context);
-    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
-        Quantum.FallingPlatform component = default;
-        Materialize((Frame)f, ref component, in context);
-        return f.Set(entity, component) == SetResult.ComponentAdded;
-    }
-    public void Materialize(Frame frame, ref Quantum.FallingPlatform result, in PrototypeMaterializationContext context = default) {
-        result.FallDelay = this.FallDelay;
-        result.ResetTime = this.ResetTime;
-        MaterializeUser(frame, ref result, in context);
-    }
-  }
-  [System.SerializableAttribute()]
-  [Quantum.Prototypes.Prototype(typeof(Quantum.Flag))]
-  public unsafe partial class FlagPrototype : ComponentPrototype<Quantum.Flag> {
-    [HideInInspector()]
-    public Int32 _empty_prototype_dummy_field_;
-    partial void MaterializeUser(Frame frame, ref Quantum.Flag result, in PrototypeMaterializationContext context);
-    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
-        Quantum.Flag component = default;
-        Materialize((Frame)f, ref component, in context);
-        return f.Set(entity, component) == SetResult.ComponentAdded;
-    }
-    public void Materialize(Frame frame, ref Quantum.Flag result, in PrototypeMaterializationContext context = default) {
-        MaterializeUser(frame, ref result, in context);
-    }
-  }
-  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.Health))]
   public unsafe partial class HealthPrototype : ComponentPrototype<Quantum.Health> {
     [Tooltip("Current health amount")]
@@ -316,46 +266,6 @@ namespace Quantum.Prototypes {
         result.RotationSpeed = this.RotationSpeed;
         result.JumpForce = this.JumpForce;
         result.WalkSpeedMultiplier = this.WalkSpeedMultiplier;
-        MaterializeUser(frame, ref result, in context);
-    }
-  }
-  [System.SerializableAttribute()]
-  [Quantum.Prototypes.Prototype(typeof(Quantum.PlatformerGameplay))]
-  public unsafe partial class PlatformerGameplayPrototype : ComponentPrototype<Quantum.PlatformerGameplay> {
-    [Tooltip("Minimum number of coins required to win the game")]
-    public Int32 MinCoinsToWin;
-    [Tooltip("Time to show the game result before new round starts")]
-    public FP GameOverTime;
-    [Tooltip("Initial spawn position for players")]
-    public FPVector3 SpawnPosition;
-    [Tooltip("Radius around spawn position where players can be placed")]
-    public FP SpawnRadius;
-    partial void MaterializeUser(Frame frame, ref Quantum.PlatformerGameplay result, in PrototypeMaterializationContext context);
-    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
-        Quantum.PlatformerGameplay component = default;
-        Materialize((Frame)f, ref component, in context);
-        return f.Set(entity, component) == SetResult.ComponentAdded;
-    }
-    public void Materialize(Frame frame, ref Quantum.PlatformerGameplay result, in PrototypeMaterializationContext context = default) {
-        result.MinCoinsToWin = this.MinCoinsToWin;
-        result.GameOverTime = this.GameOverTime;
-        result.SpawnPosition = this.SpawnPosition;
-        result.SpawnRadius = this.SpawnRadius;
-        MaterializeUser(frame, ref result, in context);
-    }
-  }
-  [System.SerializableAttribute()]
-  [Quantum.Prototypes.Prototype(typeof(Quantum.PlatformerPlayer))]
-  public unsafe partial class PlatformerPlayerPrototype : ComponentPrototype<Quantum.PlatformerPlayer> {
-    [HideInInspector()]
-    public Int32 _empty_prototype_dummy_field_;
-    partial void MaterializeUser(Frame frame, ref Quantum.PlatformerPlayer result, in PrototypeMaterializationContext context);
-    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
-        Quantum.PlatformerPlayer component = default;
-        Materialize((Frame)f, ref component, in context);
-        return f.Set(entity, component) == SetResult.ComponentAdded;
-    }
-    public void Materialize(Frame frame, ref Quantum.PlatformerPlayer result, in PrototypeMaterializationContext context = default) {
         MaterializeUser(frame, ref result, in context);
     }
   }
